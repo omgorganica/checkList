@@ -1,0 +1,35 @@
+{% extends "checklist/_base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="my-5">Список оформленных чек листов</h1>
+            <table class="table table-striped">
+                <thead >
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Вид техники</th>
+                        <th scope="col">№ техники</th>
+                        <th scope="col">Пользователь</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in result%}
+                    <tr>
+                        <th scope="row"><a href="{% url 'specific_result_id' %}?result_id={{item.id}}">{{ item.id}}</a></th>
+                        <td>{{ item.date}}</td>
+                        <td><a href="{% url 'result_vehicle_type' %}?vehicle_type={{item.vehicle_type}}">{{ item.vehicle_type}}</a></td>
+                        <td><a href="{% url 'result_vehicle_id' %}?registred_number={{item.registred_number }}">{{ item.registred_number}}</a></td>
+                        <td><a href="{% url 'result_by_user' %}?user={{item.user}}">{{ item.user}}</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        
+    </div>
+</div>
+
+{% endblock %}

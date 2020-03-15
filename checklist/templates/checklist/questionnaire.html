@@ -1,0 +1,20 @@
+{% extends "checklist/_base.html" %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h1 class="my-3">Чек-лист</h1>
+
+        <form method="POST" class="post-form form-group">
+        {% csrf_token %}
+            <table class="table-striped table table-hover ">
+                {{ form.as_table }}
+            </table>
+        <button type="submit" class="save btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "checklist/_base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Vehicle_type</th>
+      <th scope="col">Vehicle_id</th>
+      <th scope="col">User</th>
+      <th scope="col">Q1</th>
+      <th scope="col">Q2</th>
+      <th scope="col">Q3</th>
+      <th scope="col">Q4</th>
+      <th scope="col">Q5</th>
+      <th scope="col">Q6</th>
+      <th scope="col">Q7</th>
+      <th scope="col">Q8</th>
+      <th scope="col">Q9</th>
+      <th scope="col">Q10</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ result.id}}</td>
+      <td>{{ result.date}}</td>
+      <td>{{ result.vehicle_type}}</td>
+      <td>{{ result.registred_number}}</td>
+      <td>{{ result.user}}</td>
+      <td>{{ result.q1}}</td>
+      <td>{{ result.q2}}</td>
+      <td>{{ result.q3}}</td>
+      <td>{{ result.q4}}</td>
+      <td>{{ result.q5}}</td>
+      <td>{{ result.q6}}</td>
+      <td>{{ result.q7}}</td>
+      <td>{{ result.q8}}</td>
+      <td>{{ result.q9}}</td>
+      <td>{{ result.q10}}</td>
+    </tr>
+
+    </tbody>
+</table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+  <li class="list-group-item">Уровень заряда АКБ: <strong>{{ result.q11 }}  %</strong></li>
+  <li class="list-group-item">Замечания: <strong>{{ result.q12 }}</strong></li>
+
+</ul>
+    </div>
+    <a href="/result" class="btn btn-primary mt-3" role="button">Назад к списку</a>
+</div>
+
+{% endblock %}

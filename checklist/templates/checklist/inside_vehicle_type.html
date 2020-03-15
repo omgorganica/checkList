@@ -1,0 +1,16 @@
+{% extends "checklist/_base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+      <h1 class="my-3">Список техники типа {{vehicle_type_name}}</h1>
+
+          <ul class="list-group">
+            {% for item in  vehicles_list %}
+            <li class="list-group-item">
+                <a href="{% url 'questionnaire_new' %}?vehicle_type={{item.vehicle_type_id}}&vehicle_registred_number={{item.registred_number}}" class="font-weight-bolder"> {{ item }} </a>
+            </li>
+            {% endfor %}
+          </ul>
+{% endblock %}
